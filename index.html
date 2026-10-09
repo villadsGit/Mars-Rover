@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Danske programmeringsmissioner med Mars-roveren Perseverance.">
+  <title>Mars-roveren – lær Python</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/1.2.0/skulpt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/1.2.0/skulpt-stdlib.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-mark" aria-hidden="true">✦</div>
+  <div><p class="eyebrow">MISSIONKONTROL · JPL DANSK</p><h1>Mars-roveren <span>Perseverance</span></h1></div>
+  <div class="status"><i></i> SIMULATOR KLAR</div>
+</header>
+<main>
+  <section class="intro">
+    <div>
+      <p class="eyebrow">PROGRAMMÉR · TEST · UDFORSK</p>
+      <h2>Din mission på Mars<br><em>begynder her.</em></h2>
+      <p class="lead">Skriv Python-kode, styr roveren gennem det røde landskab, og test selv, om din løsning klarer missionen.</p>
+    </div>
+    <div class="planet" aria-label="Illustration af Mars"><span></span></div>
+  </section>
+
+  <section class="mission-strip" aria-label="Vælg mission">
+    <div class="strip-heading"><span>MISSIONER</span><small id="mission-count">1 af 7 valgt</small></div>
+    <div id="mission-list" class="mission-list"></div>
+  </section>
+
+  <section class="workspace">
+    <article class="panel mission-panel">
+      <div class="panel-kicker"><span id="mission-tag">MISSION 01</span><span class="difficulty">BEGYNDER</span></div>
+      <h2 id="mission-title">Afgræns området</h2>
+      <p id="mission-description"></p>
+      <div class="objective"><span class="objective-icon">◎</span><div><strong>Din opgave</strong><p id="mission-objective"></p></div></div>
+      <div class="hint-box"><strong>💡 Tip</strong><p id="mission-hint"></p></div>
+      <button class="secondary full" id="show-example">Indsæt eksempel i editoren</button>
+      <div class="mission-note">Du bestemmer selv, hvornår du vil teste din løsning. Der er ingen automatisk bedømmelse.</div>
+    </article>
+
+    <article class="panel simulator-panel">
+      <div class="panel-title"><div><p class="eyebrow">LIVE SIMULATOR</p><h2>Mars-overfladen</h2></div><span class="pill">2D · TOPVISNING</span></div>
+      <div class="canvas-wrap"><canvas id="mars-canvas" width="760" height="520" aria-label="Mars-simulator med rover og terræn"></canvas></div>
+      <div class="sim-controls">
+        <button id="run-code" class="primary">▶ Kør min kode</button>
+        <button id="reset-rover" class="secondary">↺ Nulstil rover</button>
+        <button id="clear-trail" class="secondary">Ryd rute</button>
+      </div>
+      <div class="console" aria-live="polite"><div class="console-head"><span>MISSIONLOG</span><span id="log-state">AFVENTER INPUT</span></div><p id="console-output">Roveren afventer dine instruktioner. Skriv kode og tryk på “Kør min kode”.</p></div>
+    </article>
+
+    <article class="panel editor-panel">
+      <div class="panel-title"><div><p class="eyebrow">KODESTATION</p><h2>Din Python-kode</h2></div><span class="python-badge">PY</span></div>
+      <p class="editor-help">Brug funktionerne <code>rover.forward(meter)</code>, <code>rover.left(grader)</code> og <code>rover.right(grader)</code>. Indryk kode i løkker med fire mellemrum.</p>
+      <div class="editor-shell"><div class="line-numbers" id="line-numbers">1</div><textarea id="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Python-kodeeditor">rover.forward(400)
+rover.right(90)
+rover.forward(400)
+rover.right(90)
+rover.forward(400)
+rover.right(90)
+rover.forward(400)
+rover.right(90)</textarea></div>
+      <div class="editor-footer"><span id="line-count">8 linjer</span><span>Python 3 · Skulpt</span></div>
+      <div class="editor-actions"><button class="secondary" id="clear-code">Ryd kode</button><button class="secondary" id="restore-code">Gendan startkode</button></div>
+      <div class="test-box"><strong>🧪 Test selv</strong><p id="test-prompt">Når du mener, at roveren har kørt hele vejen rundt, kan du selv kontrollere ruten på kortet.</p><button id="test-mission" class="primary full">Test min løsning</button><p id="test-result" class="test-result">Ikke testet endnu.</p></div>
+    </article>
+  </section>
+  <section class="howto"><div><span class="step-number">01</span><strong>Skriv</strong><p>Fortæl roveren, hvad den skal gøre.</p></div><div><span class="step-number">02</span><strong>Kør</strong><p>Se din kode blive til bevægelser.</p></div><div><span class="step-number">03</span><strong>Undersøg</strong><p>Test selv, om du har nået målet.</p></div></section>
+</main>
+<footer><span>Uddannelsesprojekt · Dansk udgave</span><span>Bygget til GitHub Pages</span></footer>
+<script src="app.js"></script>
+</body>
+</html>
